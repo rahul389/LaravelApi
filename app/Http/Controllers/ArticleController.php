@@ -45,16 +45,18 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), $this->rules());
+
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
+
         $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) :
             new Article;
         $article->id = $request->input('article_id');
         $article->title = $request->input('title');
         $article->body = $request->input('body');
 
-        if($article->save()){
+        if ($article->save()) {
             return new ArticleResource($article);
         }
     }
