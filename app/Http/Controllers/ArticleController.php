@@ -17,9 +17,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(15);
-
-        return ArticleResource::collection($articles);
+        $articles = Article::all();
+        return view('article/index', compact('articles'));
+       // return response()->json($articles,200);
     }
 
     /**
@@ -34,6 +34,16 @@ class ArticleController extends Controller
             'body' => 'required'
         ];
 
+    }
+
+    /**
+     * Show the form for creating a new Contact.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('article.create');
     }
 
     /**
