@@ -8,12 +8,12 @@
                     <legend>Create Article</legend>
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Title</label>
-                        <input name="title" type="text" class="form-control" id="title" aria-describedby="emailHelp"
+                        <label>Title</label>
+                        <input name="title" type="text" class="form-control" id="title"
                                placeholder="Enter Title">
                     </div>
                     <div class="form-group">
-                        <label for="exampleTextarea">Body</label>
+                        <label>Body</label>
                         <textarea name="body" class="form-control" id="" rows="3"></textarea>
                     </div>
                 </fieldset>

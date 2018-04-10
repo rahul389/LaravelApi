@@ -67,7 +67,7 @@ class ArticleController extends Controller
         $article->body = $request->input('body');
 
         if ($article->save()) {
-            return new ArticleResource($article);
+            return redirect()->route('article.show', $article->id);
         }
     }
 
@@ -81,11 +81,22 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
-        return new ArticleResource($article);
+        return view('article.show ', compact('article'));
+        //return new ArticleResource($article);
     }
 
 
+    /**
+     * Show the form for creating a new Contact.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $article = Article::findOrFail($id);
 
+        return view('article.edit', compact('article'));
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -97,7 +108,7 @@ class ArticleController extends Controller
         $article = Article::findOrFail($id);
 
         if($article->delete()){
-             return new ArticleResource($article);
+            return redirect()->route('articles.index');
         }
     }
 }
