@@ -4,7 +4,8 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <a class="btn btn-primary btn-sm" style="float:right; margin:20px" href="{{ route('articles.create') }}">Create</a>
+                <a class="btn btn-primary btn-sm" style="float:right; margin:20px"
+                   href="{{ route('articles.create') }}">Create</a>
                 <table class="table table-hover">
                     <thead>
                     <tr>
@@ -21,9 +22,20 @@
                             <td>{{ $article->title }}</td>
                             <td>{{ $article->body }}</td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="{{ route('article.show', $article->id) }}">Show</a>
-                                <a class="btn btn-success btn-sm" href="{{ route('article.edit', $article->id) }}">Update</a>
-                                <a class="btn btn-danger btn-sm" href="{{ route('article.delete', $article->id) }}">Delete</a>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <a class="btn btn-primary btn-sm"
+                                           href="{{ route('article.show', $article->id) }}">Show</a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a class="btn btn-success btn-sm"
+                                           href="{{ route('article.edit', $article->id) }}">Update</a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <a class="btn btn-danger btn-sm delete"
+                                           href="{{ route('article.delete', $article->id) }}">Delete</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
@@ -33,4 +45,5 @@
             <div class="col-md-2"></div>
         </div>
     </div>
+
 @endsection
