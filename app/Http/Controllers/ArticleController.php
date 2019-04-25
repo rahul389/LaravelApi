@@ -31,7 +31,7 @@ class ArticleController extends Controller
     {
         return [
             'title' => 'required',
-            'body'  => 'required'
+            'body'  => 'required',
         ];
     }
 
@@ -42,7 +42,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return  view('article.create');
+        return view('article.create');
     }
 
     /**
@@ -51,13 +51,10 @@ class ArticleController extends Controller
      * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\Response
-     *
-     *
-     *
      */
     public function store(Request $request)
     {
-        $validator =  Validator::make($request->all(), $this->rules());
+        $validator = Validator::make($request->all(), $this->rules());
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
@@ -65,12 +62,9 @@ class ArticleController extends Controller
 
         $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) :
             new Article();
-        $article->id = $request->input('article_id');
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
+        $article->id = $request->input('article_id');$article->title = $request->input('title');$article->body = $request->input('body');
 
-        if ($article->save()) {
-            return redirect()->route('article.show', $article->id);
+        if ($article->save()) {return redirect()->route('article.show', $article->id);
         }
     }
 
@@ -80,9 +74,6 @@ class ArticleController extends Controller
      * @param int $id
      *
      * @return \Illuminate\Http\Response
-     *
-     *
-     *
      */
     public function show($id)
     {
@@ -96,9 +87,6 @@ class ArticleController extends Controller
      * Show the form for creating a new Contact.
      *
      * @return \Illuminate\Http\Response
-     *
-     *
-     *
      */
     public function edit($id)
     {
