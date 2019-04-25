@@ -51,6 +51,9 @@ class ArticleController extends Controller
      * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\Response
+     *
+     *
+     *
      */
     public function store(Request $request)
     {
@@ -77,6 +80,9 @@ class ArticleController extends Controller
      * @param int $id
      *
      * @return \Illuminate\Http\Response
+     *
+     *
+     *
      */
     public function show($id)
     {
@@ -90,6 +96,9 @@ class ArticleController extends Controller
      * Show the form for creating a new Contact.
      *
      * @return \Illuminate\Http\Response
+     *
+     *
+     *
      */
     public function edit($id)
     {
