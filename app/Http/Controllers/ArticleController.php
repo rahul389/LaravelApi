@@ -31,7 +31,7 @@ class ArticleController extends Controller
     {
         return [
             'title' => 'required',
-            'body'  => 'required',
+            'body'  => 'required'
         ];
     }
 
@@ -42,7 +42,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('article.create');
+        return  view('article.create');
     }
 
     /**
@@ -54,7 +54,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules());
+        $validator =  Validator::make($request->all(), $this->rules());
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
