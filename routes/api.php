@@ -24,14 +24,14 @@ Route::get('articles', 'ArticleController@index')->name('articles.index');
 //List Single Article
 
 Route::get('article/{id}', [
-    'as' => 'article.show',
-    'uses' => 'ArticleController@show'
+    'as'   => 'article.show',
+    'uses' => 'ArticleController@show',
 ]);
 
 //Create New Article
 Route::get('articles/create', [
-    'as' => 'articles.create',
-    'uses' => 'ArticleController@create'
+    'as'   => 'articles.create',
+    'uses' => 'ArticleController@create',
 ]);
 
 Route::post('article', 'ArticleController@store')->name('article.store');
@@ -48,7 +48,7 @@ Route::put('article', 'ArticleController@store');
 //Delete Article
 //
 Route::get('article/delete/{id}', [
-    'as' => 'article.delete',
-    'uses' => 'ArticleController@destroy'
+    'as'   => 'article.delete',
+    'uses' => 'ArticleController@destroy',
 ]);
 Route::delete('article/{id}', 'ArticleController@destroy');

@@ -9,7 +9,8 @@ class Article extends Resource
     /**
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function toArray($request)
@@ -18,9 +19,9 @@ class Article extends Resource
 
         return [
 
-            'id' => $this->id,
+            'id'    => $this->id,
             'title' => $this->title,
-            'body' => $this->body
+            'body'  => $this->body,
         ];
     }
 
@@ -28,7 +29,7 @@ class Article extends Resource
     {
         return [
             'version' => '1.0.9',
-            'author' => 'Rahul Sharma'
+            'author'  => 'Rahul Sharma',
         ];
     }
 }

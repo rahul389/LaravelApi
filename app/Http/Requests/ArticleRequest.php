@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
 
 class ArticleRequest extends FormRequest
 {
@@ -27,7 +26,5 @@ class ArticleRequest extends FormRequest
         return [
             'title' => 'required',
         ];
-
     }
-
 }

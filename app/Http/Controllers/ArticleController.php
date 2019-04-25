@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Validator;
-use App\Http\Requests\ArticleRequest;
 use App\Article;
 use App\Http\Resources\Article as ArticleResource;
+use Illuminate\Http\Request;
+use Validator;
 
 class ArticleController extends Controller
 {
@@ -18,8 +17,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
+
         return view('article/index', compact('articles'));
-       // return response()->json($articles,200);
+        // return response()->json($articles,200);
     }
 
     /**
@@ -31,9 +31,8 @@ class ArticleController extends Controller
     {
         return [
             'title' => 'required',
-            'body' => 'required'
+            'body'  => 'required',
         ];
-
     }
 
     /**
@@ -49,7 +48,8 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -61,7 +61,7 @@ class ArticleController extends Controller
         }
 
         $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) :
-            new Article;
+            new Article();
         $article->id = $request->input('article_id');
         $article->title = $request->input('title');
         $article->body = $request->input('body');
@@ -74,7 +74,8 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -84,7 +85,6 @@ class ArticleController extends Controller
         return view('article.show ', compact('article'));
         //return new ArticleResource($article);
     }
-
 
     /**
      * Show the form for creating a new Contact.
@@ -97,17 +97,19 @@ class ArticleController extends Controller
 
         return view('article.edit', compact('article'));
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $article = Article::findOrFail($id);
 
-        if($article->delete()){
+        if ($article->delete()) {
             return redirect()->route('articles.index');
         }
     }
