@@ -65,7 +65,6 @@ class ArticleController extends Controller
         $article->id = $request->input('article_id');
         $article->title = $request->input('title');
         $article->body = $request->input('body');
-
         if ($article->save()) {
             return redirect()->route('article.show', $article->id);
         }
