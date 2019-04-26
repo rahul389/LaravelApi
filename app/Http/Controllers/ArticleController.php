@@ -62,9 +62,13 @@ class ArticleController extends Controller
 
         $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) :
             new Article();
-        $article->id = $request->input('article_id');
-        $article->title = $request->input('title');
-        $article->body = $request->input('body');
+        $article->id 
+        = $request->input('article_id');
+        $article->title
+        = $request->input('title');
+        $article->body =
+
+     $request->input('body');
         if ($article->save()) {
             return redirect()->route('article.show', $article->id);
         }
@@ -94,7 +98,8 @@ class ArticleController extends Controller
     {
         $article = Article::findOrFail($id);
 
-        return view('article.edit', compact('article'));
+        return 
+        view('article.edit', compact('article'));
     }
 
     /**
@@ -106,10 +111,14 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        $article = Article::findOrFail($id);
+        $article = 
+        Article::findOrFail($id);
 
         if ($article->delete()) {
+            
             return redirect()->route('articles.index');
+
+            
         }
     }
 }
