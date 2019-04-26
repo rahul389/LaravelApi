@@ -61,7 +61,12 @@ class ArticleController extends Controller
         }
 
         $article = $request->isMethod('put') ? Article::findOrFail($request->article_id) :
-            new Article(); $article->id = $request->input('article_id');$article->title = $request->input('title');$article->body = $request->input('body'); if ($article->save()) { return redirect()->route('article.show', $article->id);
+            new Article();
+        $article->id = $request->input('article_id');
+        $article->title = $request->input('title');
+        $article->body = $request->input('body');
+        if ($article->save()) {
+            return redirect()->route('article.show', $article->id);
         }
     }
 
